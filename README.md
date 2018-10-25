@@ -1,11 +1,11 @@
 # Bill Of Materials Service
 
-A sample microservice with a simple REST Endpoint and In-mem H2 database
+A sample microservice with a simple REST Endpoint, Swagger UI, and HATEOAS 
 
-### Requirement Description: 
+### Problem Statement: 
 
-Given a product "P", assume that we can build from a list or components.
-However, each required component also needs to be built separately and also provides a list of sub-components as a dependency.
+For a given a product "P", nested dependecies from other product/components exists in order to build it. 
+We need a way to generate a unique lists of all its dependencies.
 
 Take the product dependency map given below:
 
@@ -38,7 +38,14 @@ Take the product dependency map given below:
 
 ```
 
-Then, if we want to generate the requirement list of product P, a service must be able to generate a unique list of required components to build it depending on the map shown above.
+### Solution
+
+To generate a dependency list (or bill of materials), we need to:
+
+1. Convert the input map above and convert it to a tree-structure
+2. Tree-walk the nodes and gather the component names via a unique list as you traverse it
+
+This is shown on: [ComponentServiceImpl.class](https://github.com/raymundarthur/bill-of-materials-ms/blob/master/src/main/java/com/raymund/bom/service/ComponentServiceImpl.java)
 
 
 ### Prerequisites
@@ -59,11 +66,36 @@ mvn spring-boot:run
 
 ### Examples
 
-Provide a sample build/test output here;
+Get the dependency list for product P:
+```
+curl -X GET "http://localhost:8080/api/v1/components/P/bom" -H "accept: application/json;charset=UTF-8"
+```
+
+Result is:
+```
+{
+  "component": "P",
+  "requirementSet": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I"
+  ],
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/api/v1/components/P/bom"
+    }
+  }
+}
+```
 
 Provide a screenshot here
 
 
 
 
-Animated banner taken from [Spring-boot's Github page](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-animated-banner)
