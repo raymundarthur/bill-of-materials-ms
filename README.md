@@ -94,7 +94,12 @@ Result is:
 }
 ```
 
-Provide a screenshot here
+To access Swagger UI Console running via your local, go to:
+```
+http://localhost:8080/swagger-ui.html
+```
+
+![Swagger-UI Sample](./docs/swagger-ui.JPG )
 
 
 
