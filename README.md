@@ -48,13 +48,13 @@ To generate a dependency list (or bill of materials), we need to:
 This is shown on: [ComponentServiceImpl.class](https://github.com/raymundarthur/bill-of-materials-ms/blob/master/src/main/java/com/raymund/bom/service/ComponentServiceImpl.java)
 
 
-### Prerequisites
+# Prerequisites
 
 + Java JDK 1.8
 + Apache Maven 3.3+
 
 
-### How to Build and Run
+# How to Build and Run
 
 Build, Test, and Run using command:
 
@@ -64,7 +64,7 @@ mvn spring-boot:run
 ```
 
 
-### Examples
+# Examples
 
 Get the dependency list for product P:
 ```
