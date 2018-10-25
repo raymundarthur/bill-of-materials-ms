@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: bill-of-materials-ms
+  profiles:
+    active: default
+    
+    
+  cloud:
+    config:
+      enabled: false  

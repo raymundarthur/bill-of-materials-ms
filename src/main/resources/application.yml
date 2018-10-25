@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  
+spring:
+  application:
+    name: bill-of-materials-ms
+  profiles: default
+  
+management:
+  endpoints:
+    web:
+      exposure.include: '*'  
+  
+logging:
+  level:
+    com.raymund: debug      
+    
+info:
+  app:
+    name: bill-of-materials-ms
+    description: "Refer to our github page on https://github.com/raymundarthur/bill-of-materials-ms"
+    version : "0.0.1-SNAPSHOT"

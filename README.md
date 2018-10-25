@@ -66,3 +66,4 @@ Provide a screenshot here
 
 
 
+Animated banner taken from [Spring-boot's Github page](https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-animated-banner)
